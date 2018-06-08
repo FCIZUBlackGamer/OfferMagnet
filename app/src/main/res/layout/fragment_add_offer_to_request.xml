@@ -1,0 +1,77 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/addOffertorequestFrameLayout"
+    android:background="@color/BackgroudColor"
+    tools:context="com.example.hp.offermagnet.AddOfferToRequestFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+       >
+        <RelativeLayout
+            android:layout_marginBottom="40dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="103dp"
+            android:background="@drawable/layout_shape">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="75dp"
+                android:text="Add Your Offer"
+                android:textColor="#3C4960"
+                android:textSize="25dp"
+                android:fontFamily="Gilroy ☞"
+                android:layout_centerHorizontal="true"
+                android:id="@+id/offerTitle"
+
+                />
+            <EditText
+                android:padding="10dp"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_below="@id/offerTitle"
+                android:layout_height="160dp"
+                android:id="@+id/offerOfRequest"
+                android:maxLength="100"
+                android:background="@drawable/proposal_shape"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="22dp"
+                android:layout_marginLeft="22dp"
+                android:hint="Write your offer here in maximum length 100 char"
+                android:textColorHint="#3C4960"
+
+                />
+            <Button
+                android:id="@+id/btnSendOffer"
+                android:layout_marginTop="16dp"
+                android:layout_width="160dp"
+                android:layout_marginBottom="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="50dp"
+
+                android:hint="Send"
+                android:textColorHint="@color/colorWhite"
+                android:background="@drawable/sign_back_button"
+                android:layout_below="@id/offerOfRequest"
+                />
+
+        </RelativeLayout>
+        <ImageView
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/product_image"
+            android:id="@+id/userimage"
+            />
+
+
+    </RelativeLayout>
+
+
+</FrameLayout>

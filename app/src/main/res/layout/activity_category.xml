@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.hp.offermagnet.Category"
+    android:background="@color/BackgroudColor">
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/category"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:id="@+id/category"
+        />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:id="@+id/cat"
+        android:layout_below="@+id/category">
+
+
+    <TableLayout
+        android:id="@+id/table1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+       >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/BackgroudColor"
+            android:drawableBottom="@drawable/books"
+            android:id="@+id/books"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Books"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/BackgroudColor"
+            android:drawableBottom="@drawable/computer"
+            android:layout_marginTop="5dp"
+            android:id="@+id/computer"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="computer"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+        <Button
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:drawableBottom="@drawable/shoses"
+            android:background="@color/BackgroudColor"
+            android:layout_marginTop="5dp"
+            android:id="@+id/shoses"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Shoses"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+
+    </TableLayout>
+
+    <TableLayout
+        android:id="@+id/table2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/table1"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/table1">
+
+        <Button
+            android:id="@+id/foods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/BackgroudColor"
+            android:drawableBottom="@drawable/foods"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Foods"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableBottom="@drawable/cellphone"
+            android:background="@color/BackgroudColor"
+            android:layout_marginTop="5dp"
+            android:id="@+id/cellphone"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cellphones"
+
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+        <Button
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:drawableBottom="@drawable/fashions"
+            android:background="@color/BackgroudColor"
+            android:layout_marginTop="5dp"
+            android:id="@+id/fashions"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fashions"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+
+    </TableLayout>
+    <TableLayout
+        android:id="@+id/Table3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/category"
+        android:layout_marginTop="40dp"
+        android:layout_toEndOf="@id/table2"
+        android:layout_marginLeft="30dp"
+        android:layout_toRightOf="@id/table1">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/BackgroudColor"
+            android:drawableBottom="@drawable/electronics"
+            android:id="@+id/electronics"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:text="Electronics"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableBottom="@drawable/officies"
+            android:layout_marginTop="5dp"
+            android:background="@color/BackgroudColor"
+            android:id="@+id/officies"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Offices"
+
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+        <Button
+
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"
+            android:background="@color/BackgroudColor"
+            android:drawableBottom="@drawable/collections"
+            android:layout_marginTop="5dp"
+            android:id="@+id/collections"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Collections"
+            android:textColor="@color/colorFocus"
+            android:textAlignment="center"
+            />
+
+
+    </TableLayout>
+     >
+    </RelativeLayout>
+
+    <Button
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/cat"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/continuebutton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginRight="40dp"
+        android:id="@+id/btncontinue"/>
+
+
+</RelativeLayout>

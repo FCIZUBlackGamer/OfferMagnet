@@ -1,0 +1,165 @@
+package com.example.hp.offermagnet;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.*;
+
+import com.android.volley.*;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+
+import org.json.JSONArray;
+import org.json.*;
+
+
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by hp on 25/02/2018.
+ */
+
+public class LogIn extends Fragment {
+    Button btn;
+    EditText phone;
+    EditText pass;
+    String var;
+    boolean phonev,passv;
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        final View rootView = inflater.inflate(R.layout.tab_signin, container, false);
+        phone = (EditText) rootView.findViewById(R.id.phoneEditText);
+        pass = (EditText) rootView.findViewById(R.id.passEditText);
+        phone.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (phone.getText().length() <= 10) {
+                    phone.setError("Required at least 11 number");
+                    phonev = false;
+                } else
+                    phonev=true;
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+        pass.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if (pass.getText().length() <= 6) {
+                    pass.setError("Required at least 7 digits");
+                    passv = false;
+                } else
+                    passv=true;
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        btn = (Button) rootView.findViewById(R.id.btnlogin);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (phonev&&passv) {
+                    login();
+                   // Intent intent = new Intent(getContext(), NavDrawer.class);
+
+                   // startActivity(intent);
+                    Toast.makeText(getContext().getApplicationContext(), "sent", Toast.LENGTH_LONG).show();
+
+                }
+            }
+        });
+        return rootView;
+
+    }
+
+    private void login() {
+
+
+        StringRequest postRequest = new StringRequest(Request.Method.POST,"http://102.185.201.45/Test.php",
+
+                new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+               // Toast.makeText(getContext().getApplicationContext(), response, Toast.LENGTH_LONG).show();
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    JSONArray jsonArray = jsonObject.getJSONArray("response");
+                    for (int x=0; x<jsonArray.length(); x++) {
+                        JSONObject jsonObject1 = jsonArray.getJSONObject(x);
+                        if (jsonObject1.getString("state").equals("OK")) {
+
+                            Toast.makeText(getContext().getApplicationContext(), "connect", Toast.LENGTH_LONG).show();
+                            Intent intent = new Intent(getContext(), NavDrawer.class);
+
+                            startActivity(intent);
+
+                        } else if (jsonObject1.getString("state").equals("NO"))
+
+                            Toast.makeText(getContext().getApplicationContext(), "error", Toast.LENGTH_LONG).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+
+                if (error instanceof ServerError)
+                    Toast.makeText(getContext().getApplicationContext(), "Server Error", Toast.LENGTH_SHORT).show();
+                else if (error instanceof TimeoutError)
+                    Toast.makeText(getContext().getApplicationContext(), "Connection Timed Out", Toast.LENGTH_SHORT).show();
+                else if (error instanceof NetworkError)
+                    Toast.makeText(getContext().getApplicationContext(), "Bad Network Connection", Toast.LENGTH_SHORT).show();
+            }
+
+
+
+        })
+
+       {
+           @Override
+           protected Map<String, String> getParams() throws AuthFailureError
+           {
+               Map <String,String> param=new HashMap<String, String>() ;
+               param.put("phone",phone.getText().toString());
+               param.put("password",pass.getText().toString());
+               return  param;
+
+           }
+
+
+        };
+       Volley.newRequestQueue(getContext()).add(postRequest);
+
+    }
+}

@@ -1,0 +1,27 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context="com.example.hp.offermagnet.One"
+    android:background="@color/BackgroudColor"
+    android:id="@+id/frame_offer">
+
+    <!-- TODO: Update blank fragment layout -->
+   <android.support.v7.widget.RecyclerView
+       android:id="@+id/recyclerviewOffer"
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+   </android.support.v7.widget.RecyclerView>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_Offer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:layout_margin="@dimen/fab_margin"
+        app:backgroundTint="@color/NavigationDrawerColor"
+        app:srcCompat="@drawable/add_plus_button" />
+
+
+</FrameLayout>

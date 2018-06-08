@@ -1,0 +1,162 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/BackgroudColor"
+android:id="@+id/requestDetails"
+    tools:context="com.example.hp.offermagnet.RequestDetailsFragment">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/imageProfile"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_centerHorizontal="true"
+
+                android:src="@drawable/product_image"
+                />
+
+
+
+            <ImageView
+                android:id="@+id/separator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imageProfile"
+                android:layout_marginBottom="26dp"
+                android:src="@drawable/divider" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/separator"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:orientation="vertical"
+                >
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_below="@id/layoutInfo"
+                    android:background="@drawable/layout_shape"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="15dp"
+                        android:src="@drawable/recycler"/>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:textColor="#464D53"
+                        />
+
+                    <RelativeLayout
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@drawable/layout_shape">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/path"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/path"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3 days left"
+                            android:textColor="@color/colorGray"
+                            android:layout_toRightOf="@+id/path"
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/txtPath"
+                            />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:id="@+id/cal"
+                            android:layout_below="@+id/path"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/calendar"/>
+                        <TextView
+                            android:layout_marginLeft="5dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="finish"
+                            android:textColor="@color/colorGray"
+                            android:layout_toRightOf="@+id/cal"
+                            android:layout_below="@id/path"
+
+                            android:layout_marginTop="15dp"
+                            />
+
+                    </RelativeLayout>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+
+                        android:padding="10dp"
+                        android:textColor="#000"
+                        android:text="info"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_gravity="center">
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:layout_alignParentLeft="true"
+                        android:background="@drawable/sign_back_button"
+                        android:id="@+id/addOffer"
+                        android:layout_marginLeft="5dp"
+                        android:text="add Offer"
+                        android:textColorHint="@color/colorWhite"
+
+                        />
+                    <Button
+                        android:layout_weight="1"
+                        android:layout_toRightOf="@+id/addOffer"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="5dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_width="wrap_content"
+
+                        android:layout_height="50dp"
+                        android:text="Join"
+                        android:textColorHint="@color/colorWhite"
+                        android:id="@+id/join"
+
+                        android:background="@drawable/sign_back_button"/>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</FrameLayout>
