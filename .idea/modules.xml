@@ -3,12 +3,14 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://C:\Users\hp\Desktop\OfferMagnet\OfferMagnet\GraduationProject.iml" filepath="C:\Users\hp\Desktop\OfferMagnet\OfferMagnet\GraduationProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/OfferMagnet.iml" filepath="$PROJECT_DIR$/OfferMagnet.iml" />
-      <module fileurl="file://C:\Users\nesma\Desktop\New folder\GraduationProject\OfferMagnet.iml" filepath="C:\Users\nesma\Desktop\New folder\GraduationProject\OfferMagnet.iml" />
       <module fileurl="file://C:\Users\ASUS\Desktop\New folder (4)\Project\OfferMagnet.iml" filepath="C:\Users\ASUS\Desktop\New folder (4)\Project\OfferMagnet.iml" />
+      <module fileurl="file://C:\Users\nesma\Desktop\New folder (2)\finalProject\OfferMagnet.iml" filepath="C:\Users\nesma\Desktop\New folder (2)\finalProject\OfferMagnet.iml" />
+      <module fileurl="file://C:\Users\nesma\Desktop\New folder\GraduationProject\OfferMagnet.iml" filepath="C:\Users\nesma\Desktop\New folder\GraduationProject\OfferMagnet.iml" />
       <module fileurl="file://C:\Users\ASUS\Desktop\New folder (3)\Project\OfferMagnet.iml" filepath="C:\Users\ASUS\Desktop\New folder (3)\Project\OfferMagnet.iml" />
       <module fileurl="file://C:\Users\hp\Desktop\OfferMagnet\OfferMagnet\Project.iml" filepath="C:\Users\hp\Desktop\OfferMagnet\OfferMagnet\Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\nesma\Desktop\New folder (2)\finalProject\app\app.iml" filepath="C:\Users\nesma\Desktop\New folder (2)\finalProject\app\app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/finalProject.iml" filepath="$PROJECT_DIR$/finalProject.iml" />
     </modules>
   </component>
 </project>

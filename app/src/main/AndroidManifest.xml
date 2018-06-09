@@ -13,14 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Splash" />
-        <activity android:name=".Splash1">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Splash1"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
-        </activity>
         <activity
             android:name=".UserTab"
             android:label="@string/title_activity_user_tab"
@@ -30,15 +24,20 @@
             android:name=".NavDrawer"
             android:label="@string/title_activity_nav_drawer"
             android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
         </activity>
         <activity android:name=".MainActivity"></activity>
         <activity android:name=".uploadImage">
 
 
-
         </activity>
+
+
 
 
     </application>

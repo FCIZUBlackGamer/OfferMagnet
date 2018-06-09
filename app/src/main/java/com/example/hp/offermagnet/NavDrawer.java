@@ -1,5 +1,7 @@
 package com.example.hp.offermagnet;
 
+import com.squareup.picasso.Picasso;
+
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -16,27 +18,31 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 //import com.ittianyu.bottomnavigationviewex.BottomNavigationViewEx;
 
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    CircleImageView imageView;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
-        TabLayout tabs=(TabLayout)findViewById(R.id.tabs);
+        TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        ViewPager pager=(ViewPager)findViewById(R.id.viewpager);
-        PagerAdapter TabAdapter=new tabpagerAdapter(getSupportFragmentManager());
+        ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
+        PagerAdapter TabAdapter = new tabpagerAdapter(getSupportFragmentManager());
         pager.setAdapter(TabAdapter);
 
         tabs.setupWithViewPager(pager);
-
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -47,6 +53,13 @@ public class NavDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View view = navigationView.getHeaderView(0);
+        imageView = view.findViewById(R.id.imageProfilee);
+        //if (imageView != null)
+        Picasso.with(this)
+                .load("http://192.168.1.26/images/3.jpeg")
+                .into(imageView);
+
     }
 
     @Override
@@ -93,7 +106,6 @@ public class NavDrawer extends AppCompatActivity
         } else if (id == R.id.category) {
 
         } else if (id == R.id.wishlist) {
-
 
 
         } else if (id == R.id.myOrder) {

@@ -26,7 +26,7 @@ Button btnProposal,btnRate;
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View v= inflater.inflate(R.layout.fragment_details, container, false);
-        btnProposal = (Button)v.findViewById(R.id.btnSubmitProposal);
+
         btnRate = (Button)v.findViewById(R.id.btnRate);
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,15 +37,7 @@ Button btnProposal,btnRate;
 
             }
         });
-        btnProposal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment submitProposalFragment = new SubmitProposalFragment();
-                FragmentManager ft = getFragmentManager();
-                ft.beginTransaction().replace(R.id.OfferDetailLayout, submitProposalFragment).commit();
 
-            }
-        });
         return v;
     }
 
