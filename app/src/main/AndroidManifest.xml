@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Splash" />
-        <activity android:name=".Splash1"/>
+        <activity android:name=".Splash1" />
 
         <activity
             android:name=".UserTab"
@@ -36,8 +36,6 @@
 
 
         </activity>
-
-
 
 
     </application>

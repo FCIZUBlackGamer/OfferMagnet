@@ -8,9 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
 
 
-
-
     </style>
+    <style name="RatingBar" parent="Theme.AppCompat">
+        <item name="colorControlNormal">@color/BackgroudColor</item>
+        <item name="colorControlActivated">@color/NavigationDrawerColor</item>
+    </style>
+
     <style name="spinner_gender" parent="Base.Widget.AppCompat.Spinner">
 
     <item name="android:background">@drawable/spinner_gender_syle</item>

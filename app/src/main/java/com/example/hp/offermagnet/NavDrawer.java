@@ -57,7 +57,7 @@ public class NavDrawer extends AppCompatActivity
         imageView = view.findViewById(R.id.imageProfilee);
         //if (imageView != null)
         Picasso.with(this)
-                .load("http://192.168.1.26/images/3.jpeg")
+                .load("http://192.168.1.24/images/3.jpeg")
                 .into(imageView);
 
     }

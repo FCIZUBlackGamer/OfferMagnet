@@ -14,7 +14,7 @@ import android.widget.Button;
  * A simple {@link Fragment} subclass.
  */
 public class DetailsFragment extends Fragment {
-Button btnProposal,btnRate;
+    Button btnProposal, btnRate;
 
     public DetailsFragment() {
         // Required empty public constructor
@@ -25,9 +25,9 @@ Button btnProposal,btnRate;
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View v= inflater.inflate(R.layout.fragment_details, container, false);
+        View v = inflater.inflate(R.layout.fragment_details, container, false);
 
-        btnRate = (Button)v.findViewById(R.id.btnRate);
+        btnRate = (Button) v.findViewById(R.id.btnRate);
         btnRate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

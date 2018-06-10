@@ -31,8 +31,8 @@ public class WishlistFragment extends Fragment {
         View view= inflater.inflate(R.layout.fragment_wishlist, container, false);
         RecyclerView recyclerView=(RecyclerView) view.findViewById(R.id.recyclerviewOffer);
         ArrayList<DataItem> dataItems=new ArrayList<DataItem>();
-        dataItems.add(new DataItem("Pizza", "buy one and git one free", R.drawable.ellipse));
-        dataItems.add(new DataItem("shose", "discound 10%", R.drawable.ellipse));
+//        dataItems.add(new DataItem("Pizza", "buy one and git one free", R.drawable.ellipse));
+//        dataItems.add(new DataItem("shose", "discound 10%", R.drawable.ellipse));
         recyclerView.setLayoutManager(new LinearLayoutManager(view.getContext()));
 
         MyRecyclerViewAdapter adapter=new MyRecyclerViewAdapter(dataItems,getContext());
