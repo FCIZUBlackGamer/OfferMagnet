@@ -19,7 +19,9 @@
             android:name=".UserTab"
             android:label="@string/title_activity_user_tab"
             android:theme="@style/AppTheme"></activity>
-        <activity android:name=".Category" />
+        <activity android:name=".Category">
+
+        </activity>
         <activity
             android:name=".NavDrawer"
             android:label="@string/title_activity_nav_drawer"

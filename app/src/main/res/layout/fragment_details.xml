@@ -29,9 +29,9 @@
                 android:layout_height="40dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="15dp"
-                android:numStars="5"
                 android:layout_toRightOf="@id/imageProfile"
-                android:theme="@style/RatingBar"/>
+                android:numStars="5"
+                android:theme="@style/RatingBar" />
 
             <TextView
                 android:id="@+id/numberOfUsers"
@@ -141,6 +141,27 @@
                         android:textColor="#000" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:id="@+id/share"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:src="@drawable/share_gray" />
+
+                    <ImageView
+                        android:id="@+id/star_garay"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/star_garay" />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"

@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/BackgroudColor"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.hp.offermagnet.NavDrawer"
-    tools:showIn="@layout/app_bar_nav_drawer"
-    android:background="@color/BackgroudColor">
+    tools:showIn="@layout/app_bar_nav_drawer">
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -15,7 +15,6 @@
         android:layout_height="match_parent">
 
     </android.support.v4.view.ViewPager>
-
 
 
 </android.support.constraint.ConstraintLayout>

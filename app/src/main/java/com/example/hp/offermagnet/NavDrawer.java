@@ -41,7 +41,6 @@ public class NavDrawer extends AppCompatActivity
         ViewPager pager = (ViewPager) findViewById(R.id.viewpager);
         PagerAdapter TabAdapter = new tabpagerAdapter(getSupportFragmentManager());
         pager.setAdapter(TabAdapter);
-
         tabs.setupWithViewPager(pager);
 
 

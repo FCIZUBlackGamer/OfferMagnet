@@ -7,22 +7,25 @@ import java.io.Serializable;
  */
 
 public class User implements Serializable {
-    private int id;
+    private String id;
     private String userName;
     private String phone;
     private String birthDate;
     private String gender;
     private String city;
+    private String state;
+    private String password;
 
 
     User() {
+
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -42,18 +45,18 @@ public class User implements Serializable {
         this.phone = phone;
     }
 
-    User(int id) {
+    User(String id) {
         this.id = id;
     }
 
-    User(String birthDate, String gender, String city) {
+    User(String id,String birthDate, String gender, String city) {
 
         this.birthDate = birthDate;
         this.gender = gender;
         this.city = city;
 
     }
-/*
+
     public String getPassword() {
         return password;
     }
@@ -62,14 +65,6 @@ public class User implements Serializable {
         this.password = password;
     }
 
-    public String getConfirmPassword() {
-        return confirmPassword;
-    }
-
-    public void setConfirmPassword(String confirmPassword) {
-        this.confirmPassword = confirmPassword;
-    }
-    */
 
     public String getBirthDate() {
         return birthDate;
@@ -93,5 +88,13 @@ public class User implements Serializable {
 
     public void setCity(String city) {
         this.city = city;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 }

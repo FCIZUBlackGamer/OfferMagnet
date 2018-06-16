@@ -72,24 +72,11 @@
                     android:layout_marginTop="2dp"
                     android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:src="@drawable/share_gray" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:id="@+id/star_garay"
-                        android:src="@drawable/star_garay" />
-
                     <Button
                         android:id="@+id/detailsButton"
                         android:layout_width="100dp"
                         android:layout_height="30dp"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="130dp"
                         android:background="@drawable/sign_back_button"
                         android:text="Details" />
                 </LinearLayout>

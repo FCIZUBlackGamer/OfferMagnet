@@ -9,6 +9,7 @@
 
 
     </style>
+
     <style name="RatingBar" parent="Theme.AppCompat">
         <item name="colorControlNormal">@color/BackgroudColor</item>
         <item name="colorControlActivated">@color/NavigationDrawerColor</item>
@@ -16,18 +17,21 @@
 
     <style name="spinner_gender" parent="Base.Widget.AppCompat.Spinner">
 
-    <item name="android:background">@drawable/spinner_gender_syle</item>
+        <item name="android:background">@drawable/spinner_gender_syle</item>
 
     </style>
-    <style name="spinner_style" >
-    <item name="android:color">@color/colorWhite</item>
-    <item name="android:background">@drawable/spinner_bg</item>
+
+    <style name="spinner_style">
+        <item name="android:color">@color/colorspin</item>
+        <item name="android:background">@drawable/spinner_bg</item>
         <item name="android:paddingTop">10dp</item>
         <item name="android:paddingBottom">10dp</item>
 
-    </style><style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
-<item name="android:textColor">@color/colorBlack</item>
-</style>
+    </style>
+
+    <style name="spinnerItemStyle" parent="android:Widget.TextView.SpinnerItem">
+        <item name="android:textColor">@color/colorBlack</item>
+    </style>
 
     <style name="spinnerDropDownItemStyle" parent="android:TextAppearance.Widget.TextView.SpinnerItem">
         <item name="android:textColor">@color/colorBlack</item>

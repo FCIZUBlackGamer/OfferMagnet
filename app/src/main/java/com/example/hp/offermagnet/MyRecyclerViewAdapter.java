@@ -55,6 +55,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     ImageView pro_img;
     CircleImageView imageProfile;
     Button btncontact, btnrate;
+    ImageView star_garay, share;
     View view;
 
     // data is passed into the constructor
@@ -84,6 +85,8 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
         numberOfUsers = alertLayout.findViewById(R.id.numberOfUsers);
         imageProfile = alertLayout.findViewById(R.id.imageProfile);
         txtPath = alertLayout.findViewById(R.id.txtPath);
+        share = alertLayout.findViewById(R.id.share);
+        star_garay = alertLayout.findViewById(R.id.star_garay);
         btncontact = alertLayout.findViewById(R.id.btncontact);
         btnrate = alertLayout.findViewById(R.id.btnRate);
         txtfinish = alertLayout.findViewById(R.id.txtfinish);
@@ -146,7 +149,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                         progressDialog.setMessage("Rating ...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.24/RateOffer.php",
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.4/RateOffer.php",
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -184,7 +187,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                 txtfinish.setText("Online Until " + dataItem.get(position).getDateTo());
                 txtPath.setText("Started From " + dataItem.get(position).getDateFrom());
                 pro_des.setText("Title: " + dataItem.get(position).getTitle() + "\nDescription\n" + dataItem.get(position).getDesc() + "\nPrice: " + dataItem.get(position).getPrice());
-                holder.star_garay.setOnClickListener(new View.OnClickListener() {
+                star_garay.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Toast.makeText(context, "Start", Toast.LENGTH_SHORT).show();
@@ -192,7 +195,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                         progressDialog.setMessage("Loading ...");
                         progressDialog.setCancelable(false);
                         progressDialog.show();
-                        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.24/InLike.php",
+                        StringRequest stringRequest = new StringRequest(Request.Method.POST, "http://192.168.1.4/InLike.php",
                                 new Response.Listener<String>() {
                                     @Override
                                     public void onResponse(String response) {
@@ -204,7 +207,7 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
                                         }
                                         progressDialog.dismiss();
                                         Toast.makeText(context, response, Toast.LENGTH_SHORT).show();
-                                        holder.star_garay.setImageResource(R.drawable.star_shine);
+                                        star_garay.setImageResource(R.drawable.star_shine);
                                     }
                                 }, new Response.ErrorListener() {
                             @Override
@@ -229,12 +232,21 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             }
         });
 
-        holder.star_garay.setOnClickListener(new View.OnClickListener() {
+        share.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Like Action
+                Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                String shareBody = "Title: " + dataItem.get(position).getTitle() + "\nDescription\n" + dataItem.get(position).getDesc() + "\nPrice: " + dataItem.get(position).getPrice()+"\n"+
+                        "Started From " + dataItem.get(position).getDateFrom()+"\n"+"Online Until " + dataItem.get(position).getDateTo();
+                String Subject = "New Offer!";
+                sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, Subject);
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+                context.startActivity(Intent.createChooser(sharingIntent, "Share via"));
+
             }
         });
+
     }
 
     // total number of rows
@@ -252,7 +264,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
     // stores and recycles views as they are scrolled off screen
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView txtTitle, desc;
-        ImageView star_garay;
         CircleImageView usrImage;
         Button btnDetails;
 
@@ -261,7 +272,6 @@ public class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAd
             txtTitle = (TextView) itemView.findViewById(R.id.txtTitle);
             desc = (TextView) itemView.findViewById(R.id.txtContent);
             usrImage = (CircleImageView) itemView.findViewById(R.id.userPhoto);
-            star_garay = (ImageView) itemView.findViewById(R.id.star_garay);
             btnDetails = (Button) itemView.findViewById(R.id.detailsButton);
             btnDetails.setOnClickListener(this);
         }

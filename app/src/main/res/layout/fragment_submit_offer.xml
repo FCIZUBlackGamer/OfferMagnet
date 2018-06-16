@@ -65,7 +65,8 @@
 
                 <Spinner
                     android:id="@+id/spinnerCity"
-                    style="@style/spinner_gender"
+                    style="@style/spinner_style"
+                    android:entries="@array/cities"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_below="@id/productPrice"
@@ -104,30 +105,11 @@
                     android:layout_margin="10dp"
                     android:background="@drawable/layout_shape">
 
-                    <EditText
-                        android:id="@+id/productName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerHorizontal="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/layout_shape"
-                        android:hint="Product name"
-                        android:inputType="text"
-                        android:maxLength="20"
-                        android:paddingBottom="10dp"
-                        android:paddingLeft="20dp"
-                        android:paddingRight="20dp"
-                        android:paddingTop="10dp"
-                        android:textColor="@color/colorGray"
-                        android:textColorHint="#253041" />
-
                     <Spinner
                         android:id="@+id/spinnerCategory"
                         style="@style/spinner_style"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/productName"
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="25dp"
                         android:layout_marginTop="10dp"
@@ -139,12 +121,30 @@
 
                     </Spinner>
 
+                    <Spinner
+                        android:id="@+id/productName"
+                        style="@style/spinner_style"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_below="@id/spinnerCategory"
+                        android:layout_marginTop="20dp"
+                        android:hint="Product name"
+                        android:maxLength="20"
+                        android:paddingBottom="10dp"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="20dp"
+                        android:paddingTop="10dp" />
+
+
+
                     <EditText
 
                         android:id="@+id/productDescription"
                         android:layout_width="match_parent"
                         android:layout_height="135dp"
-                        android:layout_below="@id/spinnerCategory"
+                        android:layout_below="@id/productName"
                         android:layout_marginLeft="23dp"
                         android:layout_marginRight="23dp"
                         android:layout_marginTop="25dp"
@@ -164,11 +164,20 @@
                         android:layout_height="wrap_content"
                         android:layout_below="@id/productDescription"
                         android:layout_centerHorizontal="true"
-                        android:layout_marginBottom="37dp"
+                        android:layout_marginBottom="17dp"
                         android:layout_marginTop="35.49dp"
                         android:background="@drawable/sign_back_button"
                         android:hint="Add attachment"
                         android:textColorHint="@color/colorWhite" />
+
+                    <ImageView
+                        android:id="@+id/show_image"
+                        android:layout_width="500px"
+                        android:layout_height="200px"
+                        android:layout_below="@id/addAttachment"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="37dp"
+                        android:layout_marginTop="15dp" />
                 </RelativeLayout>
 
 

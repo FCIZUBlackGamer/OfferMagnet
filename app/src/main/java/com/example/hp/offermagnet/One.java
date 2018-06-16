@@ -57,7 +57,7 @@ public class One extends Fragment implements ItemClickListener {
         final ProgressDialog progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Loading Data ...");
         progressDialog.show();
-        StringRequest stringRequest = new StringRequest( Request.Method.POST, "http://192.168.1.24/GetOffers.php",
+        StringRequest stringRequest = new StringRequest( Request.Method.POST, "http://192.168.1.4/GetOffers.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {

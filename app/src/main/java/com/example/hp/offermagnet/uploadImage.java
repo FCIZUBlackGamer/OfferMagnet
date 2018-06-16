@@ -71,7 +71,7 @@ public class uploadImage extends AppCompatActivity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(uploadImage.this, filePath.toString(), Toast.LENGTH_SHORT).show();
+//                Toast.makeText(uploadImage.this, filePath.toString(), Toast.LENGTH_SHORT).show();
                 //getting the actual path of the image
                 String path = getPath(filePath);
 
@@ -80,7 +80,7 @@ public class uploadImage extends AppCompatActivity {
                     String uploadId = UUID.randomUUID().toString();
 
                     //Creating a multi part request
-                    new MultipartUploadRequest(uploadImage.this, uploadId, "http://192.168.1.26/AddImage.php")
+                    new MultipartUploadRequest(uploadImage.this, uploadId, "http://192.168.1.22/AddImage.php")
                             .addFileToUpload(path, "image") //Adding file
                             .addParameter("user_id","1")//Adding text parameter to the request
                             .setNotificationConfig(new UploadNotificationConfig())

@@ -26,7 +26,7 @@ Button addOffer,join;
         // Inflate the layout for this fragment
         View v=inflater.inflate(R.layout.fragment_request_details, container, false);
         addOffer=(Button)v.findViewById(R.id.addOffer);
-        join=(Button)v.findViewById(R.id.join);
+        join=(Button)v.findViewById(R.id.joinR);
         addOffer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
