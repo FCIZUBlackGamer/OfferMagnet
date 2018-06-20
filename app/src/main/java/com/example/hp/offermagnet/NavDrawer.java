@@ -1,12 +1,10 @@
 package com.example.hp.offermagnet;
 
-import com.squareup.picasso.Picasso;
-
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.view.PagerAdapter;
@@ -18,8 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+
+import com.squareup.picasso.Picasso;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -28,11 +26,16 @@ import de.hdodenhof.circleimageview.CircleImageView;
 public class NavDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     CircleImageView imageView;
+    Fragment fragment;
+    FragmentManager fragmentManager;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nav_drawer);
         TabLayout tabs = (TabLayout) findViewById(R.id.tabs);
+
+        fragmentManager = getSupportFragmentManager();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -42,7 +45,6 @@ public class NavDrawer extends AppCompatActivity
         PagerAdapter TabAdapter = new tabpagerAdapter(getSupportFragmentManager());
         pager.setAdapter(TabAdapter);
         tabs.setupWithViewPager(pager);
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -100,13 +102,17 @@ public class NavDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.Home) {
-
-
+            fragment = new HomeFragment();
+            fragmentManager.beginTransaction();
+            final FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frame, fragment).commit();
         } else if (id == R.id.category) {
 
         } else if (id == R.id.wishlist) {
-
-
+            fragment = new WishlistFragment();
+            fragmentManager.beginTransaction();
+            final FragmentTransaction transaction = fragmentManager.beginTransaction();
+            transaction.replace(R.id.frame, fragment).commit();
         } else if (id == R.id.myOrder) {
 
         } else if (id == R.id.action_settings) {

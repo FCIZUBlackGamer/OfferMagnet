@@ -129,13 +129,9 @@ public class One extends Fragment implements ItemClickListener {
                     ft.beginTransaction().replace(R.id.frame_offer, productDetailFragment).commit();
                     fab.setVisibility(View.GONE);
                 }
-
-
             }
         });
-
         return view;
-
     }
 
     @Override

@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class Two extends Fragment implements ItemClickListener {
+public class Two extends Fragment  {
 
 
     public Two() {
@@ -138,11 +138,11 @@ public class Two extends Fragment implements ItemClickListener {
     }
 
 
-    @Override
+   /* @Override
     public void onClick(View view, int position) {
         Fragment productDetailFragment = new RequestDetailsFragment();
         FragmentManager ft = getFragmentManager();
         ft.beginTransaction().replace(R.id.frame_request, productDetailFragment).commit();
         fab.setVisibility(View.GONE);
-    }
+    }*/
 }

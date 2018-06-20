@@ -38,16 +38,27 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/user_name"
-                android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+
                 android:src="@drawable/divider" />
+
+            <TextView
+                android:id="@+id/numJoin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/separator"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+
+                android:textColor="@color/colorBlack" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/separator"
+                android:layout_below="@id/numJoin"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
+                android:layout_marginTop="10dp"
                 android:orientation="vertical">
 
 
@@ -117,19 +128,6 @@
                     android:layout_marginBottom="10dp"
                     android:layout_marginTop="10dp"
                     android:orientation="horizontal">
-
-                    <Button
-                        android:id="@+id/addOffer"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_marginLeft="5dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/sign_back_button"
-                        android:text="add Offer"
-                        android:textColorHint="@color/colorWhite"
-
-                        />
 
                     <Button
                         android:id="@+id/joinR"

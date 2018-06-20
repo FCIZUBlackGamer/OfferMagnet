@@ -228,14 +228,14 @@ protected  void trySignUp(){
                         if (!jsonObject.getString("id").equals("NULL") ) {
 
 
-                            Toast.makeText(getContext().getApplicationContext(), "connect", Toast.LENGTH_LONG).show();
-                            user.setId(Integer.parseInt(jsonObject.getString("id")));
-                            contact contacts=new contact(user.getId(),fname.getText().toString(),phone.getText().toString());
-                            final DatabaseHandler db=new DatabaseHandler(getContext());
-                            Intent intent = new Intent(getContext(), Category.class);
-                            db.insert(contacts);
-
-                            startActivity(intent);
+//                            Toast.makeText(getContext().getApplicationContext(), "connect", Toast.LENGTH_LONG).show();
+//                            user.setId(Integer.parseInt(jsonObject.getString("id"))+"");
+//                            contact contacts=new contact(user.getId(),fname.getText().toString(),phone.getText().toString());
+//                            final DatabaseHandler db=new DatabaseHandler(getContext());
+//                            Intent intent = new Intent(getContext(), Category.class);
+//                            db.insert(contacts);
+//
+//                            startActivity(intent);
 
                         } else
 

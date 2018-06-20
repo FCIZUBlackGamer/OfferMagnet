@@ -1,35 +1,46 @@
 package com.example.hp.offermagnet;
 
+import android.Manifest;
 import android.app.DatePickerDialog;
-import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+//
+//import com.android.volley.Request;
+//import com.android.volley.Response;
+//import com.android.volley.VolleyError;
+//import com.android.volley.request.SimpleMultiPartRequest;
 
-import com.android.volley.AuthFailureError;
-import com.android.volley.DefaultRetryPolicy;
-import com.android.volley.Request;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
+import net.gotev.uploadservice.MultipartUploadRequest;
+import net.gotev.uploadservice.UploadNotificationConfig;
 
+import java.io.IOException;
 import java.util.Calendar;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.UUID;
+
+
+import static android.app.Activity.RESULT_OK;
 
 
 public class SubmitRequestFragment extends Fragment {
@@ -61,9 +72,14 @@ public class SubmitRequestFragment extends Fragment {
     EditText txtTitle;
     Spinner spnCategory;
     EditText txtDesc;
-    Button btnSubmit;
+    Button btnSubmit, addAttach;
     String date;
     int a = 1;
+    ImageView show_image;
+    private int PICK_IMAGE_REQUEST = 1;
+    private static final int STORAGE_PERMISSION_CODE = 123;
+    private Bitmap bitmap;
+    private Uri filePath;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -71,6 +87,10 @@ public class SubmitRequestFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_submit_request, container, false);
         txtMeters = (TextView) view.findViewById(R.id.textKilo);
         seekbar = (SeekBar) view.findViewById(R.id.barLocation);
+        requestStoragePermission();
+        addAttach = (Button) view.findViewById(R.id.addAttachment);
+        show_image = (ImageView) view.findViewById(R.id.show_image2);
+
         seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
@@ -109,6 +129,15 @@ public class SubmitRequestFragment extends Fragment {
             spnCategory.setFocusable(true);
         }*/
 
+        addAttach.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("image/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE_REQUEST);
+            }
+        });
 
         btnSetDate = (Button) view.findViewById(R.id.btnSetDate);
         txtDate = (TextView) view.findViewById(R.id.txtDate);
@@ -142,10 +171,59 @@ public class SubmitRequestFragment extends Fragment {
             @Override
             public void onClick(View view) {
 
-                if(txtTitle.getText().toString().equals("") || txtDesc.getText().toString().equals("") || date.equals("")){
+                if (txtTitle.getText().toString().equals("") || txtDesc.getText().toString().equals("") || date.equals("")) {
                     Toast.makeText(getContext().getApplicationContext(), "InValid", Toast.LENGTH_SHORT).show();
-                }else {
-                    submitReq();
+                } else {
+//                    submitReq();
+
+                    String path = "";
+                    try {
+                        path = getPath(filePath);
+                    }catch (Exception e){
+                        Toast.makeText(getActivity(),"Can't get Image Path", Toast.LENGTH_LONG).show();
+                    }
+                    //Uploading code
+                    try {
+                        String uploadId = UUID.randomUUID().toString();
+                        Toast.makeText(getActivity(), path+"\n"+txtTitle.getText().toString()+"\n"+txtDesc.getText().toString()+"\n"+txtDate.getText().toString(), Toast.LENGTH_SHORT).show();
+
+                        //Creating a multi part request
+                        new MultipartUploadRequest(getActivity(), uploadId, "https://offer-system.000webhostapp.com/InsertRequest.php")
+                                .addFileToUpload(path, "image") //Adding file
+                                .addParameter("title", txtTitle.getText().toString()+"title")
+                                .addParameter("dis", txtDesc.getText().toString()+"dis")
+                                .addParameter("validate_date", txtDate.getText().toString()+"val")
+                                .addParameter("cat_id", "2")
+                                .addParameter("user_id", "2")
+                                .addParameter("city", "Zagazig")
+                                .setNotificationConfig(new UploadNotificationConfig())
+                                .setMaxRetries(2)
+                                .startUpload();//Starting the upload
+
+//                        SimpleMultiPartRequest smr = new SimpleMultiPartRequest(Request.Method.POST, "https://offer-system.000webhostapp.com/InsertRequest.php",
+//                                new Response.Listener<String>() {
+//                                    @Override
+//                                    public void onResponse(String response) {
+//                                        Log.d("Response", response);
+//                                        Toast.makeText(getActivity(), "Ok", Toast.LENGTH_LONG).show();
+//                                    }
+//                                }, new Response.ErrorListener() {
+//                            @Override
+//                            public void onErrorResponse(VolleyError error) {
+//                                Toast.makeText(getActivity(), error.getMessage(), Toast.LENGTH_LONG).show();
+//                            }
+//                        });
+//                        smr.addStringParam("title", txtTitle.getText().toString());
+//                        smr.addStringParam("dis", txtTitle.getText().toString());
+//                        smr.addStringParam("validate_date", txtTitle.getText().toString());
+//                        smr.addStringParam("cat_id", txtTitle.getText().toString());
+//                        smr.addStringParam("user_id", txtTitle.getText().toString());
+//                        smr.addStringParam("city", txtTitle.getText().toString());
+//                        smr.addFile("image", path);
+
+                    } catch (Exception exc) {
+                        Toast.makeText(getActivity(), exc.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }
@@ -153,56 +231,120 @@ public class SubmitRequestFragment extends Fragment {
         return view;
     }
 
+    private void requestStoragePermission() {
+        if (ContextCompat.checkSelfPermission(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
+            return;
 
-
-    public void submitReq() {
-        final String URL = "http://192.168.1.26/InsertRequest.php";
-
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
-            @Override
-
-            public void onResponse(String response) {
-                try {
-
-                    if (response.contains("Request Approved!")) {
-                        Toast.makeText(getContext().getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
-                        Fragment done = new Task_is_complete();
-                        FragmentManager ft = getFragmentManager();
-                        ft.beginTransaction().replace(R.id.frameRequest, done).commit();
-                    }else {
-                        Toast.makeText(getContext().getApplicationContext(), response, Toast.LENGTH_SHORT).show();
-
-                    }
-
-                } catch (Exception e) {
-
-                }
-
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            Toast.makeText(getContext().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
-
-                Toast.makeText(getContext().getApplicationContext(), "failed", Toast.LENGTH_SHORT).show();
-
-            }
-        }) {
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> params = new HashMap<>();
-                params.put("title", txtTitle.getText().toString());
-                params.put("dis", txtDesc.getText().toString());
-                params.put("validate_date", date);
-                params.put("city", "zagazig");
-
-                params.put("cat_id", 1 + "");
-                params.put("user_id", 1 + "");
-
-                return params;
-            }
-        };
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-        Volley.newRequestQueue(getContext()).add(stringRequest);
+        if (ActivityCompat.shouldShowRequestPermissionRationale(getActivity(), Manifest.permission.READ_EXTERNAL_STORAGE)) {
+            //If the user has denied the permission previously your code will come to this block
+            //Here you can explain why you need this permission
+            //Explain here why you need this permission
+        }
+        //And finally ask for the permission
+        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
     }
+
+    //This method will be called when the user will tap on allow or deny
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+
+        //Checking the request code of our request
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+
+            //If permission is granted
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                //Displaying a toast
+                Toast.makeText(getActivity(), "Permission granted now you can read the storage", Toast.LENGTH_LONG).show();
+            } else {
+                //Displaying another toast if permission is not granted
+                Toast.makeText(getActivity(), "Oops you just denied the permission", Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
+    //handling the image chooser activity result
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
+            filePath = data.getData();
+            try {
+                bitmap = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(), filePath);
+                show_image.setImageBitmap(bitmap);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    //method to get the file path from uri
+    public String getPath(Uri uri) {
+        Cursor cursor = getActivity().getContentResolver().query(uri, null, null, null, null);
+        cursor.moveToFirst();
+        String document_id = cursor.getString(0);
+        document_id = document_id.substring(document_id.lastIndexOf(":") + 1);
+        cursor.close();
+
+        cursor = getActivity().getContentResolver().query(
+                android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+                null, MediaStore.Images.Media._ID + " = ? ", new String[]{document_id}, null);
+        cursor.moveToFirst();
+        String path = cursor.getString(cursor.getColumnIndex(MediaStore.Images.Media.DATA));
+        cursor.close();
+
+        return path;
+    }
+
+
+//    public void submitReq() {
+//        final String URL = "http://192.168.1.26/InsertRequest.php";
+//
+//        StringRequest stringRequest = new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+//            @Override
+//
+//            public void onResponse(String response) {
+//                try {
+//
+//                    if (response.contains("Request Approved!")) {
+//                        Toast.makeText(getContext().getApplicationContext(), "success", Toast.LENGTH_SHORT).show();
+//                        Fragment done = new Task_is_complete();
+//                        FragmentManager ft = getFragmentManager();
+//                        ft.beginTransaction().replace(R.id.frameRequest, done).commit();
+//                    } else {
+//                        Toast.makeText(getContext().getApplicationContext(), response, Toast.LENGTH_SHORT).show();
+//
+//                    }
+//
+//                } catch (Exception e) {
+//
+//                }
+//
+//            }
+//        }, new Response.ErrorListener() {
+//            @Override
+//            public void onErrorResponse(VolleyError error) {
+//                Toast.makeText(getContext().getApplicationContext(), error.getMessage(), Toast.LENGTH_SHORT).show();
+//
+//                Toast.makeText(getContext().getApplicationContext(), "failed", Toast.LENGTH_SHORT).show();
+//
+//            }
+//        }) {
+//            @Override
+//            protected Map<String, String> getParams() throws AuthFailureError {
+//                Map<String, String> params = new HashMap<>();
+//                params.put("title", txtTitle.getText().toString());
+//                params.put("dis", txtDesc.getText().toString());
+//                params.put("validate_date", date);
+//                params.put("city", "zagazig");
+//                params.put("cat_id", 1 + "");
+//                params.put("user_id", 1 + "");
+//
+//                return params;
+//            }
+//        };
+//        stringRequest.setRetryPolicy(new DefaultRetryPolicy(0, -1, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
+//        Volley.newRequestQueue(getContext()).add(stringRequest);
+//    }
 }

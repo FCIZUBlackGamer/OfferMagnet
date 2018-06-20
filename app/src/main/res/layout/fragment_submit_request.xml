@@ -1,269 +1,284 @@
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/frameRequest"
-    android:background="@color/colorWhite"
-    tools:context="com.example.hp.offermagnet.SubmitRequestFragment"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-<ScrollView
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="com.example.hp.offermagnet.SubmitRequestFragment">
 
- >
-
-
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-       >
+        android:layout_height="match_parent"
+
+        >
 
 
         <RelativeLayout
-android:layout_centerHorizontal="true"
-            android:id="@+id/layout1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/layout_shape">
+            android:layout_height="wrap_content">
 
-            <EditText
-                android:fontFamily="Gilroy ☞"
-                android:textColor="@color/colorGray"
-                android:id="@+id/title"
+
+            <RelativeLayout
+                android:id="@+id/layout1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/layout_shape"
-                android:gravity="center_vertical"
-                android:hint="Request Title"
                 android:layout_centerHorizontal="true"
-                android:inputType="text"
-                android:paddingLeft="23dp"
-                android:paddingRight="23dp"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
-                android:textColorHint="#253041"
-                android:maxLength="50"
-                android:layout_marginRight="25dp"
-                />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/layout_shape">
 
-            <Spinner
-                android:fontFamily="Gilroy ☞"
-                android:id="@+id/spinnerCategory"
-                style="@style/spinner_style"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/title"
-                android:layout_marginLeft="25dp"
-                android:layout_marginTop="25dp"
-                android:paddingTop="10dp"
-                android:layout_centerHorizontal="true"
-                android:paddingBottom="10dp"
-                android:layout_marginRight="25dp"
-                android:entries="@array/Category"
-                android:paddingLeft="18dp"
-                android:paddingRight="23dp"
-                android:pointerIcon="all_scroll"
-                android:spinnerMode="dropdown"
-                android:textColor="@color/colorGray"
-
-                >
-
-            </Spinner>
-
-            <EditText
-                android:fontFamily="Gilroy ☞"
-                android:id="@+id/description"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:gravity="top"
-                android:layout_below="@+id/spinnerCategory"
-                android:layout_marginBottom="25dp"
-                android:layout_marginLeft="23dp"
-                android:layout_marginRight="23dp"
-                android:layout_marginTop="25dp"
-                android:background="@drawable/layout_shape"
-                android:hint="Note"
-                android:textColor="@color/colorGray"
-                android:inputType="textMultiLine"
-                android:paddingLeft="23dp"
-                android:paddingRight="23dp"
-                android:textColorHint="#253041"
-                android:maxLength="500"/>
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/layout2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout1"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="16dp"
-            android:background="@drawable/layout_shape"
-            android:layout_centerHorizontal="true">
-
-            <TextView
-                android:id="@+id/textLocation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="21dp"
-                android:text="Select Location"
-                android:textColor="@color/colorText" />
-
-            <LinearLayout
-                android:id="@+id/linear1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textLocation"
-                android:layout_marginTop="21dp"
-                >
-
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="28dp"
-                    android:src="@drawable/active_location" />
-
-                <TextView
-                    android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginLeft="25dp"
-                    android:gravity="center"
-                    android:text="Current Location"
-                    android:textColor="#253041" />
-            </LinearLayout>
-            <LinearLayout
-                android:layout_marginTop="21dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/linear1"
-                android:id="@+id/linear2">
-                <SeekBar
-                    android:layout_weight="3"
-                    android:layout_marginLeft="25dp"
-                    android:id="@+id/barLocation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:max="30"
-                    android:progress="15"
-                    android:layout_gravity="center_vertical"
-
-                    />
-                <ImageButton
                     android:layout_marginRight="25dp"
-                    android:layout_weight="1"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/swap_btn"
-                    android:background="@drawable/layout_shape"/>
-            </LinearLayout>
-            <LinearLayout
-                android:id="@+id/linear3"
-                android:layout_below="@id/linear2"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="21dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/layout_shape"
+                    android:fontFamily="Gilroy ☞"
+                    android:gravity="center_vertical"
+                    android:hint="Request Title"
+                    android:inputType="text"
+                    android:maxLength="50"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp"
+                    android:paddingTop="10dp"
+                    android:textColor="@color/colorGray"
+                    android:textColorHint="#253041" />
 
-                >
-                <ImageView
-                    android:layout_width="8dp"
-                    android:layout_height="8dp"
-                    android:layout_gravity="center"
-                    android:layout_marginLeft="28dp"
-                    android:src="@drawable/active_location" />
-                <TextView
-                    android:layout_width="wrap_content"
+                <Spinner
+                    android:id="@+id/spinnerCategory"
+                    style="@style/spinner_style"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_below="@id/title"
+                    android:layout_centerHorizontal="true"
                     android:layout_marginLeft="25dp"
-                    android:text="15 Kilo Way"
-                    android:textColor="#253041"
-                    android:id="@+id/textKilo"/>
-            </LinearLayout>
-            <TextView
-                android:id="@+id/textDate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="45dp"
-                android:text="Select Validate Date"
-                android:textColor="@color/colorText"
-                android:layout_below="@id/linear3"/>
-<LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/LinearDate"
-    android:orientation="horizontal"
-    android:layout_below="@id/textDate"
-    android:layout_centerHorizontal="true"
-    android:layout_marginTop="15dp">
-            <Button
-                android:layout_weight="1"
-                android:layout_centerHorizontal="true"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textDate"
-               android:textColorHint="@color/colorWhite"
-                android:background="@drawable/button_shape"
-                android:id="@+id/btnSetDate"
-                android:hint="Set date"
-                android:fontFamily="Gilroy ☞"
-                android:textColor="@color/colorWhite"></Button>
-    <TextView
-        android:layout_weight="3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtDate"
-        android:text="Date Text"
-        android:textColor="@color/colorBlack"
-        android:textSize="25sp"
-        android:layout_marginLeft="50dp"
+                    android:layout_marginRight="25dp"
+                    android:layout_marginTop="25dp"
+                    android:entries="@array/Category"
+                    android:fontFamily="Gilroy ☞"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="18dp"
+                    android:paddingRight="23dp"
+                    android:paddingTop="10dp"
+                    android:pointerIcon="all_scroll"
+                    android:spinnerMode="dropdown"
+                    android:textColor="@color/colorGray"
 
+                    >
 
-        />
-</LinearLayout>
-            <Button
+                </Spinner>
 
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
+                <EditText
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_below="@+id/spinnerCategory"
+                    android:layout_marginBottom="25dp"
+                    android:layout_marginLeft="23dp"
+                    android:layout_marginRight="23dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@drawable/layout_shape"
+                    android:fontFamily="Gilroy ☞"
+                    android:gravity="top"
+                    android:hint="Note"
+                    android:inputType="textMultiLine"
+                    android:maxLength="500"
+                    android:paddingLeft="23dp"
+                    android:paddingRight="23dp"
+                    android:textColor="@color/colorGray"
+                    android:textColorHint="#253041" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/layout2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/LinearDate"
-                android:id="@+id/addAttachment"
-                android:background="@drawable/sign_back_button"
-                android:layout_marginTop="35.49dp"
+                android:layout_below="@id/layout1"
                 android:layout_centerHorizontal="true"
-                android:layout_marginBottom="36.45dp"
-                android:textColorHint="@color/colorWhite"
-                android:hint="Add attachment"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/layout_shape">
 
-                />
+                <TextView
+                    android:id="@+id/textLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="21dp"
+                    android:text="Select Location"
+                    android:textColor="@color/colorText" />
 
+                <LinearLayout
+                    android:id="@+id/linear1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textLocation"
+                    android:layout_marginTop="21dp">
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="28dp"
+                        android:src="@drawable/active_location" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:gravity="center"
+                        android:text="Current Location"
+                        android:textColor="#253041" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linear1"
+                    android:layout_marginTop="21dp">
+
+                    <SeekBar
+                        android:id="@+id/barLocation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="25dp"
+                        android:layout_weight="3"
+                        android:max="30"
+                        android:progress="15"
+
+                        />
+
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="25dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/layout_shape"
+                        android:src="@drawable/swap_btn" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linear3"
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linear2"
+                    android:layout_marginTop="21dp"
+
+                    >
+
+                    <ImageView
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="28dp"
+                        android:src="@drawable/active_location" />
+
+                    <TextView
+                        android:id="@+id/textKilo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="25dp"
+                        android:text="15 Kilo Way"
+                        android:textColor="#253041" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/linear3"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="45dp"
+                    android:text="Select Validate Date"
+                    android:textColor="@color/colorText" />
+
+                <LinearLayout
+                    android:id="@+id/LinearDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textDate"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="15dp"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/btnSetDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/textDate"
+                        android:layout_centerHorizontal="true"
+                        android:layout_weight="1"
+                        android:background="@drawable/button_shape"
+                        android:fontFamily="Gilroy ☞"
+                        android:hint="Set date"
+                        android:textColor="@color/colorWhite"
+                        android:textColorHint="@color/colorWhite"></Button>
+
+                    <TextView
+                        android:id="@+id/txtDate"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="50dp"
+                        android:layout_weight="3"
+                        android:text="Date Text"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="25sp"
+
+
+                        />
+                </LinearLayout>
+
+                <Button
+
+                    android:id="@+id/addAttachment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/LinearDate"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="36.45dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="35.49dp"
+                    android:background="@drawable/sign_back_button"
+                    android:hint="Add attachment"
+                    android:textColorHint="@color/colorWhite"/>
+
+                <ImageView
+                    android:id="@+id/show_image2"
+                    android:layout_width="500px"
+                    android:layout_height="200px"
+                    android:layout_below="@id/addAttachment"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginBottom="37dp"
+                    android:layout_marginTop="15dp" />
+
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/submitRequest"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/layout2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="37dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:layout_marginTop="38dp"
+                android:background="@drawable/sign_back_button"
+                android:text="Submit request"
+                android:textColorHint="@color/colorWhite" />
         </RelativeLayout>
-        <Button
-            android:layout_marginLeft="25dp"
-            android:layout_marginRight="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/layout2"
-            android:text="Submit request"
-            android:background="@drawable/sign_back_button"
-            android:textColorHint="@color/colorWhite"
-            android:layout_marginTop="38dp"
-            android:layout_marginBottom="37dp"
-            android:layout_centerHorizontal="true"
-            android:id="@+id/submitRequest"
-            />
-    </RelativeLayout>
 
 
-</ScrollView>
+    </ScrollView>
 </FrameLayout>
